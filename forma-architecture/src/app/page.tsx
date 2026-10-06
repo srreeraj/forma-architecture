@@ -1,18 +1,27 @@
+import Hero from "@/components/hero/Hero";
+import IdeaSection from "@/components/story/IdeaSection";
+import LineSection from "@/components/story/LineSection";
+import FormSection from "@/components/story/FormSection";
+import MaterialSection from "@/components/story/MaterialSection";
+import SpaceSection from "@/components/story/SpaceSection";
+import LightSection from "@/components/story/LightSection";
+import Projects from "@/components/projects/Projects";
+import Philosophy from "@/components/philosophy/Philosophy";
+import FinalReveal from "@/components/final/FinalReveal";
+
 export default function HomePage() {
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center px-6">
-      <div className="max-w-2xl text-center">
-        <p className="mb-4 text-xs uppercase tracking-wider text-muted">
-          FORMA Architecture Studio
-        </p>
-        <h1 className="font-serif text-4xl tracking-tight text-foreground md:text-6xl">
-          Architecture shaped by ideas.
-        </h1>
-        <p className="mt-6 text-base leading-relaxed text-muted md:text-lg">
-          Stage 1 foundation is ready. The full cinematic story will be built
-          step by step.
-        </p>
-      </div>
-    </div>
+    <>
+      <Hero />
+      <IdeaSection />
+      <LineSection />
+      <FormSection />
+      <MaterialSection />
+      <SpaceSection />
+      <LightSection />
+      <Projects />
+      <Philosophy />
+      <FinalReveal />
+    </>
   );
 }
