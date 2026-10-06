@@ -1,14 +1,11 @@
 export default function MaterialSection() {
   return (
-    <section
-      id="material"
-      className="relative border-t border-border px-6 py-28 md:px-10 md:py-40"
-    >
+    <section id="material" className="arch-rule section-padding">
       <div className="mx-auto max-w-7xl">
-        <div className="grid gap-16 md:grid-cols-12">
+        <div className="grid gap-14 md:grid-cols-12 md:gap-10">
           <div className="md:col-span-4">
-            <p className="text-xs uppercase tracking-wider text-muted">04</p>
-            <h2 className="mt-4 font-serif text-4xl tracking-tight text-foreground md:text-5xl">
+            <p className="text-xs uppercase tracking-widest text-muted">04</p>
+            <h2 className="mt-5 font-serif text-display-md text-foreground">
               THE MATERIAL
             </h2>
           </div>
@@ -18,17 +15,16 @@ export default function MaterialSection() {
               Structure gains character through material.
             </p>
 
-            {/* Material swatches placeholder */}
-            <div className="mt-16 grid max-w-2xl grid-cols-2 gap-4 sm:grid-cols-4">
+            <div className="mt-16 grid max-w-2xl grid-cols-2 gap-5 sm:grid-cols-4">
               {[
                 { name: "Concrete", tone: "bg-[#3a3a38]" },
-                { name: "Glass", tone: "bg-[#1a1a1c] border border-accent/30" },
+                { name: "Glass", tone: "bg-[#141416] border border-accent/25" },
                 { name: "Wood", tone: "bg-[#4a3f32]" },
-                { name: "Metal", tone: "bg-[#2e2e30]" },
+                { name: "Metal", tone: "bg-[#2c2c2e]" },
               ].map((mat) => (
                 <div key={mat.name} className="space-y-3">
                   <div className={`aspect-square w-full ${mat.tone}`} />
-                  <p className="text-xs uppercase tracking-wider text-muted">
+                  <p className="text-xs uppercase tracking-widest text-muted">
                     {mat.name}
                   </p>
                 </div>
