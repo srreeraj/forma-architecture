@@ -1,14 +1,11 @@
 export default function SpaceSection() {
   return (
-    <section
-      id="space"
-      className="relative border-t border-border px-6 py-28 md:px-10 md:py-40"
-    >
+    <section id="space" className="arch-rule section-padding">
       <div className="mx-auto max-w-7xl">
-        <div className="grid gap-16 md:grid-cols-12">
+        <div className="grid gap-14 md:grid-cols-12 md:gap-10">
           <div className="md:col-span-4">
-            <p className="text-xs uppercase tracking-wider text-muted">05</p>
-            <h2 className="mt-4 font-serif text-4xl tracking-tight text-foreground md:text-5xl">
+            <p className="text-xs uppercase tracking-widest text-muted">05</p>
+            <h2 className="mt-5 font-serif text-display-md text-foreground">
               THE SPACE
             </h2>
           </div>
@@ -18,21 +15,19 @@ export default function SpaceSection() {
               Architecture is not only seen. It is experienced.
             </p>
 
-            {/* Interior perspective placeholder */}
             <div className="mt-16 aspect-[16/10] w-full max-w-2xl border border-border bg-[#111]">
               <div className="relative flex h-full items-center justify-center">
-                {/* Simple vanishing-point lines */}
                 <div
                   aria-hidden="true"
-                  className="absolute inset-0 opacity-30"
+                  className="absolute inset-0 opacity-25"
                   style={{
                     background: `
-                      linear-gradient(105deg, transparent 45%, #c4b8a5 45%, #c4b8a5 45.5%, transparent 45.5%),
-                      linear-gradient(75deg, transparent 45%, #c4b8a5 45%, #c4b8a5 45.5%, transparent 45.5%)
+                      linear-gradient(105deg, transparent 45%, #c4b8a5 45%, #c4b8a5 45.4%, transparent 45.4%),
+                      linear-gradient(75deg, transparent 45%, #c4b8a5 45%, #c4b8a5 45.4%, transparent 45.4%)
                     `,
                   }}
                 />
-                <p className="relative z-10 text-xs uppercase tracking-wider text-muted">
+                <p className="relative z-10 text-xs uppercase tracking-widest text-muted">
                   Camera enters the building
                 </p>
               </div>
