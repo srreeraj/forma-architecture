@@ -1,6 +1,3 @@
-// Shared types will grow in later stages.
-// For now we keep it minimal and strict.
-
 export interface NavLink {
   label: string;
   href: string;
@@ -9,4 +6,19 @@ export interface NavLink {
 export interface FooterLink {
   label: string;
   href: string;
+}
+
+export interface Project {
+  id: string;
+  name: string;
+  location: string;
+  type: string;
+  year: string;
+}
+
+export interface StorySectionProps {
+  number: string;
+  title: string;
+  story: string;
+  children?: React.ReactNode;
 }
