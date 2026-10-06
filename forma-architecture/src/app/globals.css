@@ -6,8 +6,9 @@
   --background: #0c0c0c;
   --foreground: #e8e6e3;
   --muted: #8a8780;
-  --border: #2a2a2a;
+  --border: #222222;
   --accent: #c4b8a5;
+  --accent-soft: rgba(196, 184, 165, 0.12);
 }
 
 html {
@@ -22,14 +23,47 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Selection color – subtle architectural feel */
+/* Selection */
 ::selection {
-  background-color: rgba(196, 184, 165, 0.3);
+  background-color: rgba(196, 184, 165, 0.28);
   color: #ffffff;
 }
 
-/* Focus styles for accessibility */
+/* Focus */
 :focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 3px;
+}
+
+/* --------------------------------------------------
+   Architectural utilities
+   -------------------------------------------------- */
+
+/* Subtle horizontal rule used between sections */
+.arch-rule {
+  @apply border-t border-border;
+}
+
+/* Light architectural grid overlay (used sparingly) */
+.arch-grid {
+  background-image:
+    linear-gradient(to right, rgba(196, 184, 165, 0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(196, 184, 165, 0.06) 1px, transparent 1px);
+  background-size: 64px 64px;
+}
+
+/* Very faint vertical guide lines (editorial feel) */
+.arch-guides {
+  background-image: repeating-linear-gradient(
+    to right,
+    transparent,
+    transparent calc(100% / 12 - 1px),
+    rgba(196, 184, 165, 0.04) calc(100% / 12 - 1px),
+    rgba(196, 184, 165, 0.04) calc(100% / 12)
+  );
+}
+
+/* Section vertical rhythm */
+.section-padding {
+  @apply px-6 py-24 md:px-10 md:py-36 lg:py-44;
 }
