@@ -1,3 +1,5 @@
+'use client'
+
 import FadeIn from "@/components/animations/FadeIn";
 import StaggerContainer from "@/components/animations/StaggerContainer";
 import { motion } from "framer-motion";
