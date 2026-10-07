@@ -1,4 +1,5 @@
 import FadeIn from "@/components/animations/FadeIn";
+import ArchitectureScene from "@/components/3d/ArchitectureScene";
 
 export default function FormSection() {
   return (
@@ -22,15 +23,12 @@ export default function FormSection() {
             </FadeIn>
 
             <FadeIn delay={0.2} y={40}>
-              <div className="mt-16 flex aspect-[4/3] w-full max-w-2xl items-end justify-center border border-border bg-[#111] p-12">
-                <div className="flex items-end gap-3">
-                  <div className="h-24 w-16 bg-accent/15" />
-                  <div className="h-40 w-20 bg-accent/25" />
-                  <div className="h-32 w-14 bg-accent/20" />
-                </div>
+              <div className="mt-16 w-full overflow-hidden border border-border">
+                {/* 3D Scene lives here for now */}
+                <ArchitectureScene />
               </div>
               <p className="mt-5 text-xs tracking-wide text-muted">
-                3D massing volumes
+                Procedural architectural massing (drag to rotate)
               </p>
             </FadeIn>
           </div>
