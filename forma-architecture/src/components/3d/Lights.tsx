@@ -1,22 +1,32 @@
 "use client";
 
+import { Environment } from "@react-three/drei";
+
 export default function Lights() {
   return (
     <>
-      {/* Soft overall light */}
-      <ambientLight intensity={0.4} />
+      {/* Soft ambient fill */}
+      <ambientLight intensity={0.25} />
 
-      {/* Main sunlight */}
+      {/* Key sunlight */}
       <directionalLight
-        position={[8, 12, 6]}
-        intensity={1.4}
+        position={[10, 14, 8]}
+        intensity={1.6}
         castShadow
-        shadow-mapSize-width={1024}
-        shadow-mapSize-height={1024}
+        shadow-mapSize={[2048, 2048]}
+        shadow-camera-far={30}
+        shadow-camera-left={-10}
+        shadow-camera-right={10}
+        shadow-camera-top={10}
+        shadow-camera-bottom={-10}
+        shadow-bias={-0.0001}
       />
 
-      {/* Gentle fill light from the opposite side */}
-      <directionalLight position={[-6, 4, -4]} intensity={0.3} />
+      {/* Cool fill from the opposite side */}
+      <directionalLight position={[-8, 6, -6]} intensity={0.35} color="#b0c4de" />
+
+      {/* Subtle environment lighting for more realistic reflections */}
+      <Environment preset="city" environmentIntensity={0.45} />
     </>
   );
 }
