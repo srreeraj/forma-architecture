@@ -1,33 +1,43 @@
 "use client";
 
 import { Canvas } from "@react-three/fiber";
-import { OrbitControls } from "@react-three/drei";
+import { OrbitControls, ContactShadows } from "@react-three/drei";
 import ArchitectureModel from "./ArchitectureModel";
 import Lights from "./Lights";
 import Ground from "./Ground";
 
 export default function ArchitectureScene() {
   return (
-    <div className="h-[500px] w-full md:h-[600px]">
+    <div className="h-[520px] w-full md:h-[640px]">
       <Canvas
         shadows
-        camera={{ position: [6, 4, 8], fov: 35 }}
-        gl={{ antialias: true }}
+        camera={{ position: [7.5, 4.5, 9], fov: 32 }}
+        gl={{ antialias: true, toneMappingExposure: 1.05 }}
       >
-        {/* Background color of the 3D scene */}
+        {/* Match site background */}
         <color attach="background" args={["#0c0c0c"]} />
 
         <Lights />
         <Ground />
         <ArchitectureModel />
 
-        {/* Temporary orbit controls so you can inspect the model */}
+        {/* Soft contact shadow under the building */}
+        <ContactShadows
+          position={[0, 0.01, 0]}
+          opacity={0.45}
+          scale={20}
+          blur={2.5}
+          far={8}
+        />
+
+        {/* Temporary controls for inspection */}
         <OrbitControls
           enablePan={false}
-          minPolarAngle={Math.PI / 4}
-          maxPolarAngle={Math.PI / 2.1}
-          minDistance={6}
-          maxDistance={16}
+          minPolarAngle={Math.PI / 3.5}
+          maxPolarAngle={Math.PI / 2.05}
+          minDistance={7}
+          maxDistance={18}
+          target={[0.4, 1.2, 0]}
         />
       </Canvas>
     </div>
