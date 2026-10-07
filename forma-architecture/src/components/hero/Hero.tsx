@@ -1,6 +1,34 @@
+"use client";
+
 import Link from "next/link";
+import { motion, useReducedMotion } from "framer-motion";
 
 export default function Hero() {
+  const prefersReducedMotion = useReducedMotion();
+
+  const container = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15,
+        delayChildren: 0.1,
+      },
+    },
+  };
+
+  const item = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.9,
+        ease: [0.22, 1, 0.36, 1],
+      },
+    },
+  };
+
   return (
     <section
       id="hero"
@@ -12,21 +40,38 @@ export default function Hero() {
         className="pointer-events-none absolute inset-0 arch-grid opacity-60"
       />
 
-      <div className="relative z-10 mx-auto w-full max-w-7xl">
-        <p className="mb-8 text-xs uppercase tracking-widest text-muted">
+      <motion.div
+        className="relative z-10 mx-auto w-full max-w-7xl"
+        variants={prefersReducedMotion ? undefined : container}
+        initial={prefersReducedMotion ? false : "hidden"}
+        animate={prefersReducedMotion ? false : "visible"}
+      >
+        <motion.p
+          variants={prefersReducedMotion ? undefined : item}
+          className="mb-8 text-xs uppercase tracking-widest text-muted"
+        >
           FORMA ARCHITECTURE STUDIO
-        </p>
+        </motion.p>
 
-        <h1 className="max-w-5xl font-serif text-display-xl text-foreground">
+        <motion.h1
+          variants={prefersReducedMotion ? undefined : item}
+          className="max-w-5xl font-serif text-display-xl text-foreground"
+        >
           Architecture shaped by ideas.
-        </h1>
+        </motion.h1>
 
-        <p className="mt-10 max-w-md text-base leading-relaxed text-muted md:text-lg">
+        <motion.p
+          variants={prefersReducedMotion ? undefined : item}
+          className="mt-10 max-w-md text-base leading-relaxed text-muted md:text-lg"
+        >
           We create spaces where structure, light and human experience become
           one.
-        </p>
+        </motion.p>
 
-        <div className="mt-14">
+        <motion.div
+          variants={prefersReducedMotion ? undefined : item}
+          className="mt-14"
+        >
           <Link
             href="#idea"
             className="group inline-flex items-center gap-4 text-xs uppercase tracking-widest text-foreground"
@@ -41,8 +86,8 @@ export default function Hero() {
               ↓
             </span>
           </Link>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </section>
   );
 }
