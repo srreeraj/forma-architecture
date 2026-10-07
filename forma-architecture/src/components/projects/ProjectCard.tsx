@@ -1,12 +1,27 @@
+"use client";
+
+import { motion } from "framer-motion";
 import type { Project } from "@/types";
 
 interface ProjectCardProps {
   project: Project;
 }
 
+const itemVariant = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] },
+  },
+};
+
 export default function ProjectCard({ project }: ProjectCardProps) {
   return (
-    <article className="group border border-border bg-[#111] transition-colors duration-300 hover:border-accent/40">
+    <motion.article
+      variants={itemVariant}
+      className="group border border-border bg-[#111] transition-colors duration-300 hover:border-accent/40"
+    >
       <div className="aspect-[4/3] w-full bg-[#161616]">
         <div className="flex h-full items-center justify-center">
           <span className="text-xs uppercase tracking-widest text-muted">
@@ -24,6 +39,6 @@ export default function ProjectCard({ project }: ProjectCardProps) {
           {project.type} · {project.year}
         </p>
       </div>
-    </article>
+    </motion.article>
   );
 }
